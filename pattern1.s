@@ -28,8 +28,6 @@ main :	ldi r16,0 		; set register r16 to zero
 mainloop: 
     	ldi r19, 10         	; time delay: keep the LED on for 50 ms (it gets updated in the last line of the routine)
 
-
-
     	; hex numbers below 10 are written out using PORT B
 
     	ldi r16,0x01		; 1 (hex number)
@@ -40,11 +38,9 @@ mainloop:
     	out PORTB,r16	
     	call routine
 
-
 	ldi r16, 0x07       	; 7 (hex number)
 	out PORTB,r16
 	call routine
-
 
 	ldi r16, 0x0F 		; F (hex number)
 	out PORTB,r16
