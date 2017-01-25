@@ -21,15 +21,14 @@ main :	ldi r16,0 		; set register r16 to zero
 	out DDRD,r16
 
 
-    ; output the hexadecimal 0x55 (0x55 in HEX is 0101 0101 in Binary):
+    	; output the hexadecimal 0x55 (0x55 in HEX is 0101 0101 in Binary):
 
-    ldi r16,0x55
-    out PORTB,r16		; the lower 4 bits of the number 0x55
-    out PORTD,r16		; the upper 4 bits of the number 0x55
+    	ldi r16,0x55
+    	out PORTB,r16		; the lower 4 bits of the number 0x55
+    	out PORTD,r16		; the upper 4 bits of the number 0x55
 
-    ldi r19, 40
-    call routine
-
+    	ldi r19, 40
+    	call routine
 
 mainloop:
 
@@ -39,8 +38,8 @@ mainloop:
 	out PORTB,r16		; the lower 4 bits
 	out PORTD,r16		; the upper 4 bits
 
-    ldi r19, 40
-    call routine
+    	ldi r19, 40
+    	call routine
 
 	; shifting the registers back one bit to the right:
 	; 1010 1010 will be 0101 0101 after the shifting:
@@ -48,33 +47,31 @@ mainloop:
 	out PORTB,r16		; the lower 4 bits
 	out PORTD,r16		; the upper 4 bits
 
-    ldi r19, 40
+    	ldi r19, 40
 	call routine
 
+	rjmp mainloop		; jump back to mainloop address
 
-
-
-rjmp mainloop		; jump back to mainloop address
 
 routine:
-; delay for 10 milliseconds times parameter
-    ldi r17, 255
-    ldi r18, 126
+	; this routine delays for (10 X parameter) milliseconds
+    	ldi r17, 255
+    	ldi r18, 126
 
-    loop1:	nop
-        dec r17
-        cpi r17, 0
-        brne loop1
-        ldi r17, 255
-        dec r18
-        cpi r18, 0
-        brne loop1
-        ldi r18, 126
-        dec r19
-        cpi r19, 0
-        brne loop1
-        ldi r19, 40
-        ret
+    	loop1:	nop
+        	dec r17
+        	cpi r17, 0
+        	brne loop1
+        	ldi r17, 255
+        	dec r18
+        	cpi r18, 0
+        	brne loop1
+        	ldi r18, 126
+        	dec r19
+        	cpi r19, 0
+        	brne loop1
+        	ldi r19, 40
+        	ret
 
 
 ; my notes:
