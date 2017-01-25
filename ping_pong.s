@@ -1,9 +1,6 @@
-; Osama Aboukoura 
-; k-1630482
-
+; @author Osama Aboukoura
 ; my_code.s: light moving back and forth on a straight line.
 ; The hex decimal numbers that will light the LEDs in a line: 1, 2, 4, 8, 10, 20, 40, 80
-
 
 ; specify equivalent symbols
 .equ SREG , 0x3f
@@ -55,8 +52,6 @@ mainloop:
 	ldi r16,0x00		; the value 0 turns the LED off
 	out PORTB,r16
 	call routine
-
-
 
 	; hex numbers that are greater than or equal to 10 are written out using PORT D
 	
@@ -111,7 +106,6 @@ mainloop:
 	out PORTD,r16
 	call routine
 
-
 	ldi r16, 0x08       	; 8 (hex number)
 	out PORTB,r16
 	call routine
@@ -139,7 +133,6 @@ routine:
 	; delay for 10 milliseconds times parameter
 	ldi r17, 255 
         ldi r18, 126
-
 	loop1:	nop
 		dec r17 
 		cpi r17, 0
