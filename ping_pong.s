@@ -1,5 +1,5 @@
 ; @author Osama Aboukoura
-; my_code.s: light moving back and forth on a straight line.
+; ping_pong.s: light moving back and forth on a straight line.
 ; The hex decimal numbers that will light the LEDs in a line: 1, 2, 4, 8, 10, 20, 40, 80
 
 ; specify equivalent symbols
